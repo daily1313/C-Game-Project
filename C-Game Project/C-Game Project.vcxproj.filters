@@ -45,9 +45,24 @@
     <ClCompile Include="day10.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="day11.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="header.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="exercise2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
