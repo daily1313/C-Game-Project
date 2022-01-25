@@ -5,9 +5,12 @@
 #include <string.h>
 #include <Windows.h>
 #define SIZE 19
-
+#define XP 40
+#define YP 0
 void LoadMaze(char num);
 void GotoXY(int x, int y);
+void PrintMazeGame();
+void CursorView(char show);
 char maze[SIZE][SIZE];
 
 #endif
