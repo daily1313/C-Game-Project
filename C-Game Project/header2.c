@@ -56,3 +56,38 @@ void PrintMazeGame()
 		puts("");
 	}
 }
+void Movemaze(int *x, int *y)
+{
+	int nkey;
+	printf("бр");
+	if (_kbhit())
+	{
+		nkey = _getch();
+
+		if (nkey == ARROW)
+		{
+			nkey = _getch();
+			switch (nkey)
+			{
+			case UP: 
+				GotoXY(x, y - 1);
+				*y = *y - 1;
+				break;
+			case DOWN:
+				GotoXY(x, y + 1);
+				*y = *y + 1;
+				break;
+			case RIGHT:
+				GotoXY(x + 1, y);
+				*x = *x + 1;
+				break;
+			case LEFT:
+				GotoXY(x - 1, y);
+				*x = *x - 1;
+				break;
+			
+			}
+		}
+	}
+
+}
