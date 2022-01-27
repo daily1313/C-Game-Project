@@ -56,7 +56,8 @@ void PrintMazeGame()
 		puts("");
 	}
 }
-void Movemaze(int *x, int *y)
+
+/**void Movemaze(int* row, int* col)
 {
 	int nkey;
 	printf("бр");
@@ -70,24 +71,68 @@ void Movemaze(int *x, int *y)
 			switch (nkey)
 			{
 			case UP: 
-				GotoXY(x, y - 1);
-				*y = *y - 1;
+				if (!(isblock(*row - 1, *col)))
+				{
+					maze[*row][*col] = '0';
+					maze[*row - 1][*col] = 'x';
+					*row -= 1;
+				}
+				else if (isFinish(*row - 1, *col)) {
+					exit(0);
+				}
 				break;
 			case DOWN:
-				GotoXY(x, y + 1);
-				*y = *y + 1;
-				break;
-			case RIGHT:
-				GotoXY(x + 1, y);
-				*x = *x + 1;
+				if (!(isblock(*row + 1, *col)))
+				{
+					maze[*row][*col] = '0';
+					maze[*row + 1][*col] = 'x';
+					*row += 1;
+				}
+				else if (isFinish(*row + 1, *col)) {
+					exit(0);
+				}
 				break;
 			case LEFT:
-				GotoXY(x - 1, y);
-				*x = *x - 1;
+				if (!(isblock(*row , *col-1)))
+				{
+					maze[*row][*col] = '0';
+					maze[*row ][*col-1] = 'x';
+					*col -= 1;
+				}
+				else if (isFinish(*row, *col-1)) {
+					exit(0);
+				}
+				break;
+			case RIGHT:
+				if (!(isblock(*row , *col+1)))
+				{
+					maze[*row][*col] = '0';
+					maze[*row ][*col+1] = 'x';
+					*col += 1;
+				}
+				else if (isFinish(*row, *col+1)) {
+					exit(0);
+				}
 				break;
 			
 			}
+
 		}
 	}
 
+}*/
+int isblock(int i, int j)
+{
+	if (maze[i][j] == '1' || maze[i][j] == 'y')
+		return 1;
+	else
+		return 0;
+}
+int isFinish(int i, int j)
+{
+
+	if (maze[i][j] == 'y')
+		return 1;
+	else
+		return 0;
 }

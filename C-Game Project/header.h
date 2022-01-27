@@ -17,7 +17,11 @@ void LoadMaze(char num);
 void GotoXY(int x, int y);
 void PrintMazeGame();
 void CursorView(char show);
-void Movemaze(int *x,int *y);
+void Movemaze(int *row,int *col);
+int isblock(int i, int j);
+int isFinish(int *x);
 char maze[SIZE][SIZE];
+void goalline();
+void move(int* x, int* y);
 
 #endif
