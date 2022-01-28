@@ -57,7 +57,7 @@ void PrintMazeGame()
 	}
 }
 
-/**void Movemaze(int* row, int* col)
+void Movemaze(int* row, int* col)
 {
 	int nkey;
 	printf("□");
@@ -78,7 +78,10 @@ void PrintMazeGame()
 					*row -= 1;
 				}
 				else if (isFinish(*row - 1, *col)) {
-					exit(0);
+					maze[*row][*col] = '0';
+					maze[*row - 1][*col] = 'x';
+					PrintMazeGame();
+					Complete();
 				}
 				break;
 			case DOWN:
@@ -89,7 +92,10 @@ void PrintMazeGame()
 					*row += 1;
 				}
 				else if (isFinish(*row + 1, *col)) {
-					exit(0);
+					maze[*row][*col] = '0';
+					maze[*row + 1][*col] = 'x';
+					PrintMazeGame();
+					Complete();
 				}
 				break;
 			case LEFT:
@@ -100,7 +106,10 @@ void PrintMazeGame()
 					*col -= 1;
 				}
 				else if (isFinish(*row, *col-1)) {
-					exit(0);
+					maze[*row][*col] = '0';
+					maze[*row][*col - 1] = 'x';
+					PrintMazeGame();
+					Complete();
 				}
 				break;
 			case RIGHT:
@@ -111,6 +120,10 @@ void PrintMazeGame()
 					*col += 1;
 				}
 				else if (isFinish(*row, *col+1)) {
+					maze[*row][*col] = '0';
+					maze[*row][*col + 1] = 'x';
+					PrintMazeGame();
+					Complete();
 					exit(0);
 				}
 				break;
@@ -120,7 +133,7 @@ void PrintMazeGame()
 		}
 	}
 
-}*/
+}
 int isblock(int i, int j)
 {
 	if (maze[i][j] == '1' || maze[i][j] == 'y')
@@ -135,4 +148,15 @@ int isFinish(int i, int j)
 		return 1;
 	else
 		return 0;
+}
+void Complete()
+{
+	
+	end = clock();
+	res = (float)(end - start) / CLOCKS_PER_SEC;
+	GotoXY(XP, YP + SIZE);
+	printf("Complete!\n");
+	GotoXY(XP, YP + SIZE + 1);
+	printf("경과시간:%.2f초", res);
+	exit(0);
 }

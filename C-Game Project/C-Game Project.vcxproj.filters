@@ -75,6 +75,9 @@
     <ClCompile Include="day14-2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="day15.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="calc.h">
